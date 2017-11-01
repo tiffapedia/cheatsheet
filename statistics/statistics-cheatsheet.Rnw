@@ -1,0 +1,201 @@
+\documentclass{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[fleqn]{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
+\fancyhead[L]{Cheatsheet by Tiffany Jaya}
+\fancyhead[R]{Fall 2017}
+
+\pagestyle{fancy}
+\begin{document}
+\begin{small}
+\SweaveOpts{concordance=TRUE}
+
+Rules of \textbf{Probability}
+
+\begin{multicols}{2}
+\begin{align*}
+P(X \cup Y) & = P(X) + P(Y) - P(X \cap Y) \\\\
+P(X \cap Y) & = P(X) \cdot P(Y \mid X) \\
+            & = P(Y) \cdot P(X \mid Y) \\\\
+P(Y)        & = P(Y \cap X) + P(Y \cap \ !X) \\
+            & = P(X) \cdot P(Y \mid X) + P(!X) \cdot P(Y \mid \ !X) \\
+            & = P(Y) \cdot P(X \mid Y) + P(Y) \cdot P(!X \mid Y) \\\\
+P(X \mid Y) & = \frac{P(X \cap Y)}{P(Y)} \\
+            & = \frac{P(X) \cdot P(Y \mid X)}{P(Y)} = \frac{P(Y) \cdot P(X \mid Y)}{P(Y)} \\
+            & = \frac{P(X) \cdot P(Y \mid X)}{P(Y \mid X) \cdot P(X) + P(Y \mid \ !X) \cdot P(!X)} \\
+            & = \frac{P(Y) \cdot P(X \mid Y)}{P(Y \mid X) \cdot P(X) + P(Y \mid \ !X) \cdot P(!X)}\\\\
+P(X \cap Y \cap Z) & = P(Y) \cdot P(X \mid Y) \cdot P(Z \mid X \cap Y)\\\\
+P(X \cup Y \cup Z) & = P(X) + P(Y) + P(Z) - P(X \cap Y) - P(X \cap Z) - P(Y \cap Z) + P(X \cap Y \cap Z) \\\\
+\end{align*}
+
+\columnbreak
+\textbf{Independent}
+\begin{align*}
+\\\\
+P(X \cap Y) & = P(X) \cdot P(Y) \\
+            & = P(Y) \cdot P(X) \\\\
+\\\\\\\\
+P(X \mid Y) & = P(X) 
+\end{align*}
+\end{multicols}
+\begin{multicols}{2}
+\textbf{discrete}
+\begin{enumerate}
+\item\textbf{probability mass function (PMF)}
+
+list all possible probabilities of x
+
+$p_X(x) = P(X = x)$
+
+\begin{enumerate}
+\item probability of x must be in [0, 1]
+\item sum of all probabilities must equal to 1
+\item R: hist(x) \\ with $x$ in x-axis and $p_X(x)$ in y-axis
+\end{enumerate}
+
+\item\textbf{cumulative distribution function (CDF)}
+
+probability that a random variable is less than or equal to x
+
+$F_X(x) = P(X \leq x)$
+
+\begin{enumerate}
+\item $\lim_{x\to-\infty} F_X(x) = 0$
+\item $\lim_{x\to\infty} F_X(x) = 1$
+\item non-decreasing
+\end{enumerate}
+
+\item\textbf{$E_X(x)$ = theoretical mean}
+
+For random variable x, 
+
+$E_X(x) = \sum_{all \ x} x \cdot p_X(x)$
+
+For function g(x), 
+
+$E_X(g(x)) = \sum_{all \ x} g(x) \cdot p_X(x)$
+
+\end{enumerate}
+
+\columnbreak
+
+\textbf{continuous}
+\begin{enumerate}
+\item\textbf{probability density function (PDF)}
+
+list all possible probabilities of x
+
+$f_X(x) = \frac{\partial}{\partial x} \ F_X(x)$
+
+\begin{enumerate}
+\item $f_X(x) \ge 0$ for all x
+\item area under the curve is equal to 1
+\item R: plot(density(x)) \\ with $x$ in x-axis and $f_X(x)$ in y-axis
+\end{enumerate}
+
+\item\textbf{cumulative distribution function (CDF)}
+
+probability that a random variable is less than or equal to x
+
+$F_X(x) = P(X \leq x) = \int_{-\infty}^{x} f_X(x) \ dx$ 
+
+$P(a \le X \le b) = F_X(b) - F_X(a) = \int_{a}^{b} f_X(x) \ dx$
+
+\begin{enumerate}
+\item $\lim_{x\to-\infty} F_X(x) = 0$
+\item $\lim_{x\to\infty} F_X(x) = 1$
+\item non-decreasing
+\end{enumerate}
+
+\item\textbf{$E_X(x)$ = theoretical mean}
+
+For random variable x, 
+
+$E_X(x) = \int_{-\infty}^{\infty} x \cdot f_X(x)$
+
+For function g(x), 
+
+$E_X(g(x)) = \int_{-\infty}^{\infty} g(x) \cdot f_X(x)$
+
+\end{enumerate}
+
+\end{multicols}
+
+\pagebreak
+
+\begin{enumerate}
+\item Rules of \textbf{Expectation} 
+\begin{enumerate}
+\item $E(aX + b) = a \cdot E(X) + b$
+\item $E(XY) == E(X) \cdot E(Y)$ if X and Y are independent
+\item $E_X(x^2) = \int_{-\infty}^{\infty} x^2 \cdot f_X(x)$
+\end{enumerate}
+\item Rules of \textbf{Variance}
+\begin{enumerate}
+\item $var(X) = \sigma^2 = E(X^2) - E(X)^2$
+\item $var(X + c) = var(X)$
+\item $var(cX) = c^2 \cdot var(X)$
+\item $var(X + Y) = var(X) + var(Y) + 2 \cdot cov(X, Y)$
+\item $var(X + Y) = var(X) + var(Y)$ if X and Y are independent
+\end{enumerate}
+\item Rules of \textbf{Standard Deviation}
+\begin{enumerate}
+\item $\sigma = \sqrt{var(X)}$
+\end{enumerate}
+\item Rules of \textbf{Normal Distribution}
+\begin{enumerate}
+\item $E(X) = 0$
+\item $E(X^2) = 1$
+\item $E(X)^2 = 0$
+\item $\sigma = 1$
+\item $var(X) = 1$7
+\end{enumerate}
+\item Rules of \textbf{Joint Distribution}
+
+Remember the rules of probability above (for discrete) applies here. 
+
+\begin{enumerate}
+\item\textbf{Marginal}
+\begin{align*}
+f_X(x) & = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \ dy \\
+       & = \int_{-\infty}^{\infty} f_X(x) \cdot f_{Y \mid X}(y \mid x) \ dy \\
+f_Y(y) & = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \ dx \\
+       & = \int_{-\infty}^{\infty} f_Y(y) \cdot f_{X \mid Y}(x \mid y) \ dx
+\end{align*}
+\item $f_{X \mid Y} = \frac{f_{X, Y}(X, Y)}{f_Y(y)}$
+\item $f_{X, Y} == f_X(x) \cdot f_Y(y)$ if X and Y are independent
+\end{enumerate}
+
+\item Rules of \textbf{Covariance}
+
+Measure the strength of linear relationship b/w 2 variables
+
+\begin{enumerate}
+\item $cov(X, Y) = E((X - \mu_X)(Y - \mu_Y)) = E(XY) - E(X) \cdot E(Y)$
+\item $cov(X, X) = var(X)$
+\item $cov(aX, bY) = ab \cdot cov(XY)$
+\item $cov(X, Y+Z) = cov(X, Y) + cov(X, Z)$
+\end{enumerate}
+
+\end{enumerate}
+
+\pagebreak
+
+\center\begin{tabular}{ |c|c|c|c|c|c| }
+\hline 
+Distribution & Type & Description & PMF or PDF & $E_X(x)$ & $var(x)$ \\
+\hline
+Bernoulli & Discrete & Binomial with n = 1 & $ p^{x}(1-p)^{1-x}$ & $p$ & $1 - p$ \\
+Binomial & Discrete & n independent Bernoulli trials & $\binom{n}{x}p^{x}(1-p)^{n-x}$ & $np$ & $np(1 - p)$ \\
+Geometric & Discrete & get first success in independent Bernoulli trials & $(1 - p)^{x - 1}p$ & $\frac{1}{p}$ & $\frac{1 - p}{p^2}$ \\
+Negative Binomial & Discreite & get $r^{th}$ success in independent Bernoulli trials & $\binom{x - 1}{n - 1}p^{r}(1 - p)^{x - r}$ & $\frac{r}{p}$ & $\frac{r(1 - p)}{p^2}$ \\
+\hline
+\end{tabular}
+
+
+
+\end{small}
+\end{document}
