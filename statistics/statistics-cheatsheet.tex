@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[top=.8in, bottom=.8in, left=.8in, right=.8in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{multicol}
 \usepackage[fleqn]{mathtools}
@@ -14,35 +14,53 @@
 \begin{small}
 \input{statistics-cheatsheet-concordance}
 
+% =============================================================================
+% Page 1
+% =============================================================================
+
 Rules of \textbf{Probability}
 
 \begin{multicols}{2}
+% -----------------------------------------------------------------------------
+% Page 1, LH Column #1
+% -----------------------------------------------------------------------------
 \begin{align*}
 P(X \cup Y) & = P(X) + P(Y) - P(X \cap Y) \\\\
-P(X \cap Y) & = P(X) \cdot P(Y \mid X) \\
-            & = P(Y) \cdot P(X \mid Y) \\\\
-P(Y)        & = P(Y \cap X) + P(Y \cap \ !X) \\
+P(X \cap Y) = P(Y \cap X) & = P(X) \cdot P(Y \mid X) \\
+                          & = P(Y) \cdot P(X \mid Y) \\\\
+P(Y)        & = 1 - P(Y') \\
+            & = P(Y \cap A) + P(Y \cap B) + ... + P(Y \cap Z)\\
+            & = P(Y \cap X) + P(Y \cap \ !X) \\
             & = P(X) \cdot P(Y \mid X) + P(!X) \cdot P(Y \mid \ !X) \\
             & = P(Y) \cdot P(X \mid Y) + P(Y) \cdot P(!X \mid Y) \\\\
 P(X \mid Y) & = \frac{P(X \cap Y)}{P(Y)} \\
             & = \frac{P(X) \cdot P(Y \mid X)}{P(Y)} = \frac{P(Y) \cdot P(X \mid Y)}{P(Y)} \\
-            & = \frac{P(X) \cdot P(Y \mid X)}{P(Y \mid X) \cdot P(X) + P(Y \mid \ !X) \cdot P(!X)} \\
-            & = \frac{P(Y) \cdot P(X \mid Y)}{P(Y \mid X) \cdot P(X) + P(Y \mid \ !X) \cdot P(!X)}\\\\
+            & = \frac{P(X) \cdot P(Y \mid X)}{P(X) \cdot P(Y \mid X) + P(!X) \cdot P(Y \mid \ !X)} 
+              = \frac{P(Y) \cdot P(X \mid Y)}{P(X) \cdot P(Y \mid X) + P(!X) \cdot P(Y \mid \ !X)}\\
+            & = \frac{P(X) \cdot P(Y \mid X)}{P(Y) \cdot P(X \mid Y) + P(Y) \cdot P(!X \mid Y)}
+              = \frac{P(Y) \cdot P(X \mid Y)}{P(Y) \cdot P(X \mid Y) + P(Y) \cdot P(!X \mid Y)}\\\\
 P(X \cap Y \cap Z) & = P(Y) \cdot P(X \mid Y) \cdot P(Z \mid X \cap Y)\\\\
-P(X \cup Y \cup Z) & = P(X) + P(Y) + P(Z) - P(X \cap Y) - P(X \cap Z) - P(Y \cap Z) + P(X \cap Y \cap Z) \\\\
+P(X \cup Y \cup Z) & = P(X) + P(Y) + P(Z) - P(X \cap Y) - P(X \cap Z) - P(Y \cap Z) + P(X \cap Y \cap Z)\\\\
+P(A) + P(B) + P(C) & = 1 \ if \ mutually \ exlusive
 \end{align*}
 
 \columnbreak
+% -----------------------------------------------------------------------------
+% Page 1, RH Column #1
+% -----------------------------------------------------------------------------
 \textbf{Independent}
 \begin{align*}
 \\\\
-P(X \cap Y) & = P(X) \cdot P(Y) \\
+P(X \cap Y) = P(Y \cap X) & = P(X) \cdot P(Y) \\
             & = P(Y) \cdot P(X) \\\\
-\\\\\\\\
+\\\\\\\\\\\\
 P(X \mid Y) & = P(X) 
 \end{align*}
 \end{multicols}
 \begin{multicols}{2}
+% -----------------------------------------------------------------------------
+% Page 1, LH Column #2
+% -----------------------------------------------------------------------------
 \textbf{discrete}
 \begin{enumerate}
 \item\textbf{probability mass function (PMF)}
@@ -51,11 +69,11 @@ list all possible probabilities of x
 
 $p_X(x) = P(X = x)$
 
-\begin{enumerate}
-\item probability of x must be in [0, 1]
-\item sum of all probabilities must equal to 1
-\item R: hist(x) \\ with $x$ in x-axis and $p_X(x)$ in y-axis
-\end{enumerate}
+  \begin{enumerate}
+  \item probability of x must be in [0, 1]
+  \item sum of all probabilities must equal to 1
+  \item R: hist(x) \\ with $x$ in x-axis and $p_X(x)$ in y-axis
+  \end{enumerate}
 
 \item\textbf{cumulative distribution function (CDF)}
 
@@ -63,11 +81,11 @@ probability that a random variable is less than or equal to x
 
 $F_X(x) = P(X \leq x)$
 
-\begin{enumerate}
-\item $\lim_{x\to-\infty} F_X(x) = 0$
-\item $\lim_{x\to\infty} F_X(x) = 1$
-\item non-decreasing
-\end{enumerate}
+  \begin{enumerate}
+  \item $\lim_{x\to-\infty} F_X(x) = 0$
+  \item $\lim_{x\to\infty} F_X(x) = 1$
+  \item non-decreasing
+  \end{enumerate}
 
 \item\textbf{$E_X(x)$ = theoretical mean}
 
@@ -82,7 +100,9 @@ $E_X(g(x)) = \sum_{all \ x} g(x) \cdot p_X(x)$
 \end{enumerate}
 
 \columnbreak
-
+% -----------------------------------------------------------------------------
+% Page 1, RH Column #2
+% -----------------------------------------------------------------------------
 \textbf{continuous}
 \begin{enumerate}
 \item\textbf{probability density function (PDF)}
@@ -91,11 +111,11 @@ list all possible probabilities of x
 
 $f_X(x) = \frac{\partial}{\partial x} \ F_X(x)$
 
-\begin{enumerate}
-\item $f_X(x) \ge 0$ for all x
-\item area under the curve is equal to 1
-\item R: plot(density(x)) \\ with $x$ in x-axis and $f_X(x)$ in y-axis
-\end{enumerate}
+  \begin{enumerate}
+  \item $f_X(x) \ge 0$ for all x
+  \item area under the curve is equal to 1
+  \item R: plot(density(x)) \\ with $x$ in x-axis and $f_X(x)$ in y-axis
+  \end{enumerate}
 
 \item\textbf{cumulative distribution function (CDF)}
 
@@ -105,11 +125,11 @@ $F_X(x) = P(X \leq x) = \int_{-\infty}^{x} f_X(x) \ dx$
 
 $P(a \le X \le b) = F_X(b) - F_X(a) = \int_{a}^{b} f_X(x) \ dx$
 
-\begin{enumerate}
-\item $\lim_{x\to-\infty} F_X(x) = 0$
-\item $\lim_{x\to\infty} F_X(x) = 1$
-\item non-decreasing
-\end{enumerate}
+  \begin{enumerate}
+  \item $\lim_{x\to-\infty} F_X(x) = 0$
+  \item $\lim_{x\to\infty} F_X(x) = 1$
+  \item non-decreasing
+  \end{enumerate}
 
 \item\textbf{$E_X(x)$ = theoretical mean}
 
@@ -127,87 +147,166 @@ $E_X(g(x)) = \int_{-\infty}^{\infty} g(x) \cdot f_X(x)$
 
 \pagebreak
 
+% =============================================================================
+% Page 2
+% =============================================================================
+
+\begin{multicols}{2}
+% -----------------------------------------------------------------------------
+% Page 2, LH Column #1
+% -----------------------------------------------------------------------------
 \begin{enumerate}
 \item Rules of \textbf{Expectation} 
-\begin{enumerate}
-\item $E(aX + b) = a \cdot E(X) + b$
-\item $E(Y \mid X) = \int_{-\infty}^{\infty} y \cdot f_{Y \mid X}(y \mid x) \ dy$
-\item $E(XY) = E(E(XY \mid X)) = E(X \cdot E(Y \mid X))$
-\item $E(XY) == E(X) \cdot E(Y)$ if X and Y are independent
-\item $E(XY \mid X) = X \cdot E(Y \mid X)$
-\item $E(Y) = E(E(Y \mid X))$
-\item $E_X(x^2) = \int_{-\infty}^{\infty} x^2 \cdot f_X(x)$
-\end{enumerate}
+  \begin{enumerate}
+  \item $E(aX + b) = a \cdot E(X) + b$
+  \item $E(Y \mid X) = \int_{-\infty}^{\infty} y \cdot f_{Y \mid X}(y \mid x) \ dy$
+  \item $E(XY) = E(E(XY \mid X)) = E(X \cdot E(Y \mid X))$
+  \item $E(XY) == E(X) \cdot E(Y)$ if X, Y independent
+  \item $E(XY \mid X) = X \cdot E(Y \mid X)$
+  \item $E(Y) = E(E(Y \mid X))$
+  \item $E_X(x^2) = \int_{-\infty}^{\infty} x^2 \cdot f_X(x)$
+  \end{enumerate}
+
 \item Rules of \textbf{Variance}
-\begin{enumerate}
-\item $var(X) = \sigma^2 = E(X^2) - E(X)^2$
-\item $var(X + c) = var(X)$
-\item $var(cX) = c^2 \cdot var(X)$
-\item $var(X + Y) = var(X) + var(Y) + 2 \cdot cov(X, Y)$
-\item $var(X + Y) = var(X) + var(Y)$ if X and Y are independent
-\end{enumerate}
+  \begin{enumerate}
+  \item $var(X) = \sigma^2 = E(X^2) - E(X)^2$
+  \item $var(X + c) = var(X)$
+  \item $var(cX) = c^2 \cdot var(X)$
+  \item $var(X + Y) = var(X) + var(Y) + 2 \cdot cov(X, Y)$
+  \item $var(X + Y) = var(X) + var(Y)$ if\\X, Y independent
+  \end{enumerate}
+
 \item Rules of \textbf{Standard Deviation}
-\begin{enumerate}
-\item $\sigma = \sqrt{var(X)}$
-\end{enumerate}
+  \begin{enumerate}
+  \item $\sigma = \sqrt{var(X)}$
+  \end{enumerate}
+
 \item Rules of \textbf{Normal Distribution}
-\begin{enumerate}
-\item $E(X) = 0$
-\item $E(X^2) = 1$
-\item $E(X)^2 = 0$
-\item $\sigma = 1$
-\item $var(X) = 1$7
-\end{enumerate}
+  \begin{enumerate}
+  \item $E(X) = 0$
+  \item $E(X^2) = 1$
+  \item $E(X)^2 = 0$
+  \item $\sigma = 1$
+  \item $var(X) = 1$
+  \end{enumerate}
 \item Rules of \textbf{Joint Distribution}
 
-Remember the rules of probability above (for discrete) applies here. 
+Remember the rules of probability above\\(for discrete) applies here. 
 
-\begin{enumerate}
-\item\textbf{Marginal}
-\begin{align*}
-f_X(x) & = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \ dy \\
-       & = \int_{-\infty}^{\infty} f_X(x) \cdot f_{Y \mid X}(y \mid x) \ dy \\
-f_Y(y) & = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \ dx \\
-       & = \int_{-\infty}^{\infty} f_Y(y) \cdot f_{X \mid Y}(x \mid y) \ dx
-\end{align*}
-\item $f_{X \mid Y} = \frac{f_{X, Y}(X, Y)}{f_Y(y)}$
-\item $f_{X, Y} == f_X(x) \cdot f_Y(y)$ if X and Y are independent
-\end{enumerate}
+  \begin{enumerate}
+  \item\textbf{Marginal}
+  \begin{align*}
+  f_X(x) & = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \ dy \\
+         & = \int_{-\infty}^{\infty} f_X(x) \cdot f_{Y \mid X}(y \mid x) \ dy \\
+  f_Y(y) & = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \ dx \\
+         & = \int_{-\infty}^{\infty} f_Y(y) \cdot f_{X \mid Y}(x \mid y) \ dx
+  \end{align*}
+  \item $f_{X \mid Y} = \frac{f_{X, Y}(X, Y)}{f_Y(y)}$
+  \item $f_{X, Y} == f_X(x) \cdot f_Y(y)$ if X, Y independent
+  \end{enumerate}
 
 \item Rules of \textbf{Covariance}
 
 Measure the strength of linear relationship b/w 2 variables
 
-\begin{enumerate}
-\item $cov(X, Y) = E((X - \mu_X)(Y - \mu_Y)) = E(XY) - E(X) \cdot E(Y)$
-\item $cov(X, X) = var(X)$
-\item $cov(aX, bY) = ab \cdot cov(XY)$
-\item $cov(X, Y+Z) = cov(X, Y) + cov(X, Z)$
-\end{enumerate}
+  \begin{enumerate}
+  \item $cov(X, Y) = E((X - \mu_X)(Y - \mu_Y)) = E(XY) - E(X) \cdot E(Y)$
+  \item $cov(X, X) = var(X)$
+  \item $cov(aX, bY) = ab \cdot cov(XY)$
+  \item $cov(X, Y+Z) = cov(X, Y) + cov(X, Z)$
+  \end{enumerate}
 
 \item Rules of \textbf{Correlation}
 
 Normalize Covariance by scaling it b/w -1 and 1
 
-\begin{enumerate}
-\item $corr(X, Y) = \frac{cov(X, Y)}{\sigma_X \cdot \sigma_Y}$
-\end{enumerate}
+  \begin{enumerate}
+  \item $corr(X, Y) = \frac{cov(X, Y)}{\sigma_X \cdot \sigma_Y}$
+  \end{enumerate}
 
 \end{enumerate}
+
+\columnbreak
+% -----------------------------------------------------------------------------
+% Page 2, RH Column #1
+% -----------------------------------------------------------------------------
+\begin{enumerate}
+  \setcounter{enumi}{8}
+  \item Rules of \textbf{Complement}
+  \begin{enumerate}
+  \item $P(X > 3) = 1 - P(X \le 3)$
+  \item $P(2 \le X \le 5) = P(X \le 5) - P(X \le 1)$
+  \item$P(2 < X < 5) \\= P(3 \le X \le 4) = P(X \le 4) - P(X \le 2)$
+  \end{enumerate}
+  
+  \item Rules of \textbf{Sum}
+  \begin{enumerate}
+  \item Finite Arithmetic \\
+        i.e. 3, 7, 11, ..., 51 \\
+        $S_n = \frac{n}{2}(a_1 + a_n) = n[a_1 + \frac{n-1}{2}d]$
+  \item Finite Geometric, $r = \frac{a_n}{a_n - 1}$ \\
+        i.e. 1, 2, 4, ..., 64 \\
+        $S_n = a_1 \frac{1 - r^n}{1 - r} = \frac{a_1 - ra_n}{1 - r}$
+  \item Infinite Geometric, $r = \frac{a_n}{a_n - 1}$, -1 < r < 1\\
+        i.e. $3, 1, \frac{1}{3}, \frac{1}{9}, \frac{1}{27}, ...$ \\
+        $S = \frac{a_1}{1 - r}$
+  \item Infinite Arithmetic and Infinite Geometric w/ $r \le -1$ or $1 \le r$ \\
+        No formula
+  \end{enumerate}
+  
+  \item Rules of \textbf{Log} 
+  \begin{align*}
+  log_2(2^k) & = log_2(9801) \\
+          k  & = \frac{log_{10}(9801)}{log_{10}(2)}
+  \end{align*}
+  
+\end{enumerate}
+
+\textbf{Discrete Joint Probability Table}
+\center\begin{tabular}{ |c|c|c|c|c|c| }
+\hline
+& $y_1$ & $y_2$ & ... & $y_n$ & \\
+\hline
+$x_1$ & $f_{X,Y}(x_1, y_1)$ &  $f_{X,Y}(x_1, y_2)$ & ... & $f_{X,Y}(x_1, y_n)$ & $f_X(x_1)$\\
+\hline
+$x_2$ & $f_{X,Y}(x_2, y_1)$ &  $f_{X,Y}(x_2, y_2)$ & ... & $f_{X,Y}(x_2, y_n)$ & $f_X(x_2)$\\
+\hline
+...   & ...                 &  ...                 & ... & ...                 & ... \\
+\hline
+$x_m$ & $f_{X,Y}(x_m, y_1)$ &  $f_{X,Y}(x_m, y_2)$ & ... & $f_{X,Y}(x_m, y_n)$ & $f_X(x_m)$\\
+\hline
+      & $f_Y(y_1)$    &  $f_Y(y_2)$    & ... & $f_Y(y_n)$    & 1\\
+\hline
+\end{tabular}
+
+\end{multicols}
 
 \pagebreak
+
+% =============================================================================
+% Page 3
+% =============================================================================
 
 \center\begin{tabular}{ |c|c|c|c|c|c| }
 \hline 
 Distribution & Type & Description & PMF or PDF & $E_X(x)$ & $var(x)$ \\
 \hline
 Bernoulli & Discrete & Binomial with n = 1 & $ p^{x}(1-p)^{1-x}$ & $p$ & $1 - p$ \\
+\hline
 Binomial & Discrete & n independent Bernoulli trials & $\binom{n}{x}p^{x}(1-p)^{n-x}$ & $np$ & $np(1 - p)$ \\
+\hline
 Geometric & Discrete & get first success in independent Bernoulli trials & $(1 - p)^{x - 1}p$ & $\frac{1}{p}$ & $\frac{1 - p}{p^2}$ \\
-Negative Binomial & Discreite & get $r^{th}$ success in independent Bernoulli trials & $\binom{x - 1}{n - 1}p^{r}(1 - p)^{x - r}$ & $\frac{r}{p}$ & $\frac{r(1 - p)}{p^2}$ \\
+\hline
+Negative Binomial & Discrete & get $r^{th}$ success in independent Bernoulli trials & $\binom{x - 1}{n - 1}p^{r}(1 - p)^{x - r}$ & $\frac{r}{p}$ & $\frac{r(1 - p)}{p^2}$ \\
+\hline
+Hypergeometric & Discrete & sampling objects w/o replacement & $\frac{\binom{A}{a}\binom{B}{b}}{\binom{N}{n}} = \frac{\binom{a}{x}\binom{N-a}{n-x}}{\binom{N}{n}}$ & $\frac{n \cdot a}{N}$ & $\frac{n \cdot a \cdot (N - a) \cdot (N - n)}{N^2 \cdot (N - 1)}$\\
+\hline
+Poisson & Discrete & \# of occurences of an event & $\frac{\lambda^x \cdot e^{-\lambda}}{x!}$ & $\lambda$ & $\lambda$\\
+\hline
+\hline
+Uniform & Continuous & constant probability & $\frac{1}{b - a}, a \le x \le b$ & $\frac{a + b}{2}$ & $\frac{(b-a)^2}{12}$\\
 \hline
 \end{tabular}
-
 
 
 \end{small}

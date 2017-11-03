@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.9)  1 NOV 2017 01:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.9)  3 NOV 2017 10:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -386,15 +386,15 @@ LaTeX Font Info:    ... okay on input line 13.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* h-part:(L,W,R)=(57.81621pt, 498.66258pt, 57.81621pt)
+* v-part:(T,H,B)=(57.81621pt, 679.33757pt, 57.81621pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=469.75502pt
-* \textheight=650.43001pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
+* \textwidth=498.66258pt
+* \textheight=679.33757pt
+* \oddsidemargin=-14.45378pt
+* \evensidemargin=-14.45378pt
+* \topmargin=-51.45378pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -470,15 +470,19 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )) (./statistics-cheatsheet-concordance.tex)
-Overfull \hbox (175.8255pt too wide) in paragraph at lines 33--33
+Overfull \hbox (206.3308pt too wide) in paragraph at lines 45--45
 [] 
  []
 
 [1{/usr/local/texlive/2017basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
+Overfull \hbox (34.37466pt too wide) in paragraph at lines 266--281
+ [] 
+ []
+
 [2]
-Overfull \hbox (39.22243pt too wide) in paragraph at lines 200--210
+Overfull \hbox (47.66748pt too wide) in paragraph at lines 290--310
  [] 
  []
 
@@ -486,11 +490,11 @@ Overfull \hbox (39.22243pt too wide) in paragraph at lines 200--210
 Here is how much of TeX's memory you used:
  4544 strings out of 494437
  65832 string characters out of 6166646
- 156135 words of memory out of 5000000
+ 182187 words of memory out of 5000000
  7805 multiletter control sequences out of 15000+600000
  14350 words of font info for 36 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 39i,10n,43p,297b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,10n,43p,302b,385s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017basic/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2017basic/texmf-dist/
 fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2017basic/tex
@@ -501,12 +505,13 @@ basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2
 017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive
 /2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texli
 ve/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/tex
-live/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/
-texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on statistics-cheatsheet.pdf (3 pages, 123027 bytes).
+live/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/
+texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/loc
+al/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on statistics-cheatsheet.pdf (3 pages, 143266 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 63 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  5 words of extra memory for PDF output out of 10000 (max. 10000000)
 
