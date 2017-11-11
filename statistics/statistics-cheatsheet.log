@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.9)  3 NOV 2017 10:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.9)  4 NOV 2017 08:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -470,48 +470,63 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )) (./statistics-cheatsheet-concordance.tex)
-Overfull \hbox (206.3308pt too wide) in paragraph at lines 45--45
+Overfull \hbox (206.3308pt too wide) in paragraph at lines 46--46
 [] 
  []
 
 [1{/usr/local/texlive/2017basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (34.37466pt too wide) in paragraph at lines 266--281
- [] 
+Overfull \hbox (34.37466pt too wide) in paragraph at lines 271--300
+[]
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--300
+
+ []
+
+
+Overfull \vbox (5.7072pt too high) has occurred while \output is active []
+
+
 [2]
-Overfull \hbox (47.66748pt too wide) in paragraph at lines 290--310
+Overfull \hbox (47.66748pt too wide) in paragraph at lines 309--329
  [] 
  []
 
 [3] (./statistics-cheatsheet.aux) ) 
 Here is how much of TeX's memory you used:
- 4544 strings out of 494437
- 65832 string characters out of 6166646
- 182187 words of memory out of 5000000
- 7805 multiletter control sequences out of 15000+600000
- 14350 words of font info for 36 fonts, out of 8000000 for 9000
+ 4560 strings out of 494437
+ 65994 string characters out of 6166646
+ 190187 words of memory out of 5000000
+ 7814 multiletter control sequences out of 15000+600000
+ 18119 words of font info for 45 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  39i,10n,43p,302b,385s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017basic/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2017basic/texmf-dist/
 fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2017basic/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2017basic/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017bas
-ic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2017
-basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2
-017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive
-/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texli
-ve/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/tex
-live/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/
-texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/loc
-al/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on statistics-cheatsheet.pdf (3 pages, 143266 bytes).
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017basic
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2017ba
+sic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/201
+7basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/
+2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texli
+ve/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/te
+xlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
+/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
+al/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
+ocal/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
+/local/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></u
+sr/local/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
+</usr/local/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.p
+fb></usr/local/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb></usr/local/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy9.pfb>
+Output written on statistics-cheatsheet.pdf (3 pages, 187421 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+ 83 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  5 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -38,7 +38,8 @@ P(X \mid Y) & = \frac{P(X \cap Y)}{P(Y)} \\
               = \frac{P(Y) \cdot P(X \mid Y)}{P(X) \cdot P(Y \mid X) + P(!X) \cdot P(Y \mid \ !X)}\\
             & = \frac{P(X) \cdot P(Y \mid X)}{P(Y) \cdot P(X \mid Y) + P(Y) \cdot P(!X \mid Y)}
               = \frac{P(Y) \cdot P(X \mid Y)}{P(Y) \cdot P(X \mid Y) + P(Y) \cdot P(!X \mid Y)}\\\\
-P(X \cap Y \cap Z) & = P(Y) \cdot P(X \mid Y) \cdot P(Z \mid X \cap Y)\\\\
+P(X \cap Y \cap Z) & = P(X) \cdot P(Y \mid X) \cdot P(Z \mid X \cap Y)\\
+                   & = P(Y) \cdot P(X \mid Y) \cdot P(Z \mid X \cap Y)\\\\
 P(X \cup Y \cup Z) & = P(X) + P(Y) + P(Z) - P(X \cap Y) - P(X \cap Z) - P(Y \cap Z) + P(X \cap Y \cap Z)\\\\
 P(A) + P(B) + P(C) & = 1 \ if \ mutually \ exlusive
 \end{align*}
@@ -171,6 +172,7 @@ $E_X(g(x)) = \int_{-\infty}^{\infty} g(x) \cdot f_X(x)$
   \item $var(X) = \sigma^2 = E(X^2) - E(X)^2$
   \item $var(X + c) = var(X)$
   \item $var(cX) = c^2 \cdot var(X)$
+  \item $var(X - Y) = var(X) + var(Y)$
   \item $var(X + Y) = var(X) + var(Y) + 2 \cdot cov(X, Y)$
   \item $var(X + Y) = var(X) + var(Y)$ if\\X, Y independent
   \end{enumerate}
@@ -209,7 +211,9 @@ Remember the rules of probability above\\(for discrete) applies here.
 Measure the strength of linear relationship b/w 2 variables
 
   \begin{enumerate}
-  \item $cov(X, Y) = E((X - \mu_X)(Y - \mu_Y)) = E(XY) - E(X) \cdot E(Y)$
+  \item $cov(X, Y) = E((X - E(X))\cdot(Y - E(Y)))\\= E(XY) - E(X) \cdot E(Y)$
+  \item $cov(X, Y) = 0$ if X, Y independent \\
+        but cov == 0 does not mean X,Y independent
   \item $cov(X, X) = var(X)$
   \item $cov(aX, bY) = ab \cdot cov(XY)$
   \item $cov(X, Y+Z) = cov(X, Y) + cov(X, Z)$
@@ -235,7 +239,9 @@ Normalize Covariance by scaling it b/w -1 and 1
   \begin{enumerate}
   \item $P(X > 3) = 1 - P(X \le 3)$
   \item $P(2 \le X \le 5) = P(X \le 5) - P(X \le 1)$
-  \item$P(2 < X < 5) \\= P(3 \le X \le 4) = P(X \le 4) - P(X \le 2)$
+  \item $P(2 < X < 5) \\= P(3 \le X \le 4) = P(X \le 4) - P(X \le 2)$
+  \item $P(A \mid B') = 1 - P(A \mid B)$
+  \item $P(A' \mid B') = 1 - P(A \mid B')$
   \end{enumerate}
   
   \item Rules of \textbf{Sum}
@@ -261,8 +267,8 @@ Normalize Covariance by scaling it b/w -1 and 1
   
 \end{enumerate}
 
-\textbf{Discrete Joint Probability Table}
-\center\begin{tabular}{ |c|c|c|c|c|c| }
+\textbf{Discrete Joint Probability Table}\\
+\begin{tabular}{ |c|c|c|c|c|c| }
 \hline
 & $y_1$ & $y_2$ & ... & $y_n$ & \\
 \hline
@@ -275,6 +281,19 @@ $x_2$ & $f_{X,Y}(x_2, y_1)$ &  $f_{X,Y}(x_2, y_2)$ & ... & $f_{X,Y}(x_2, y_n)$ &
 $x_m$ & $f_{X,Y}(x_m, y_1)$ &  $f_{X,Y}(x_m, y_2)$ & ... & $f_{X,Y}(x_m, y_n)$ & $f_X(x_m)$\\
 \hline
       & $f_Y(y_1)$    &  $f_Y(y_2)$    & ... & $f_Y(y_n)$    & 1\\
+\hline
+\end{tabular}
+.\\\\
+\textbf{Variance-Covariance Matrix}\\
+\begin{tabular}{ |c|c|c|c| }
+\hline
+$var(x_1) $ & $cov(x_1, x_2)$ & ... & $cov(x_1, x_n)$  \\
+\hline
+$cov(x_2, x_1)$ & $var(x_2) $ & ... & $cov(x_2, x_n)$\\
+\hline
+...            & ...                       &  ... & ... \\
+\hline
+$cov(x_n, x_1)$ & $cov(x_n, x_2)$ & ... & $var(x_n) $\\
 \hline
 \end{tabular}
 
@@ -307,6 +326,69 @@ Uniform & Continuous & constant probability & $\frac{1}{b - a}, a \le x \le b$ &
 \hline
 \end{tabular}
 
+\begin{multicols}{2}
+\textbf{Maximum Likelihood Estimator}
+
+\begin{enumerate}
+\item p.d.f
+
+Poisson p.d.f
+
+$f(x \mid \lambda) = \frac{\lambda^x e^{-\lambda}}{x!}$
+
+\item likelihood function 
+\begin{align*}
+L(\lambda) & = P(x_1 = x_1 \mid \lambda) \cdot ... \cdot P(x_n = x_n \mid \lambda) \\
+           & =  \prod_{i = 1}^{n} \frac{\lambda^{x_i}e^{-\lambda}}{x_i!}
+\end{align*}
+
+\item log of likelihood
+\begin{align*}
+l(\lambda) & = \ln(L(\lambda)) \\
+           & = \ln(\prod_{i = 1}^{n} \frac{\lambda^{x_i}e^{-\lambda}}{x_i!}) \\
+           & = \sum_{i = 1}^{n} x_i \cdot ln(\lambda) - \lambda - \ln(x_i!)
+\end{align*}
+
+\item$\lambda_{MLE}$
+\begin{align*}
+0 & = \frac{\partial}{\partial\lambda}l(\lambda) \\
+  & = \frac{\partial}{\partial\lambda} \sum_{i = 1}^{n} x_i \cdot ln(\lambda) - \lambda - \ln(x_i!) \\
+  & = \sum_{i = 1}^{n} \frac{x_i}{\lambda} - 1 \\
+  & = (\sum_{i = 1}^{n} \frac{x_i}{\lambda}) - n \\
+  & = \frac{1}{\lambda}(\sum_{i = 1}^{n} x_i) - n \\
+n & = \frac{1}{\lambda}(\sum_{i = 1}^{n} x_i) \\
+\lambda_{MLE} & = \frac{\sum_{i = 1}^{n} x_i}{n}
+\end{align*}
+
+\end{enumerate}
+\columnbreak
+
+\textbf{Z-test, T-test}
+
+Both tests measure the difference between an observed statistic and its hypothesized population parameter. 
+\center\begin{tabular}{ |c|c| }
+\hline 
+Z-value & T-value \\
+\hline
+measures in units of S.D. & measures in units of S.E. \\
+\hline
+knows population $\sigma$ & only knows sample s\\
+\hline
+
+\hline
+\end{tabular}
+
+single value \large$z = \frac{x - \mu}{\sigma}$ \\
+
+\begin{multicols}{2}
+\small{mean of n obs} \large$z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}}$ \\
+\small$(\bar{x} - z_{\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}, \bar{x} + z_{\alpha/2}\cdot\frac{\sigma}{\sqrt{n}})$\\
+\columnbreak
+\large$t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}$\\
+
+\small$(\bar{x} - t_{\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}, \bar{x} + t_{\alpha/2}\cdot\frac{\sigma}{\sqrt{n}})$
+\end{multicols}
+\end{multicols}
 
 \end{small}
 \end{document}

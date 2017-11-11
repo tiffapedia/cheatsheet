@@ -1,0 +1,65 @@
+```{r}
+get_z_scores <- function(confidence) {
+  # z-scores 
+  lo_intvl <- (1 - confidence)/2
+  hi_intvl <- confidence + lo_intvl
+  z_scores <- qnorm(c(lo_intvl, hi_intvl))
+  
+  return(z_scores)
+} 
+
+
+get_t_scores <- function(confidence, n) {
+  # degree of freedom = n - 1 
+  df <- n - 1
+  
+  # t-scores 
+  lo_intvl <- (1 - confidence)/2
+  hi_intvl <- confidence + lo_intvl
+  t_scores <- qt(c(lo_intvl, hi_intvl), df=df)
+  
+  return(t_scores)
+} 
+
+get_z_confidence_interval <- function(confidence, x, s) {
+  # z-scores
+  z_scores <- get_z_scores(confidence)
+  
+  # confidence interval
+  confidence_intvl <- x + z_scores * s 
+
+  return(paste(confidence_intvl, collapse=", "))
+}
+
+
+get_t_confidence_interval <- function(confidence, n, x, s) {
+  # t-scores
+  t_scores <- get_t_scores(confidence, n)
+  
+  # confidence interval
+  confidence_intvl <- x + t_scores * s / sqrt(n)
+
+  return(paste(confidence_intvl, collapse=", "))
+}
+```
+```{r}
+# define variables
+# 1. 95% confidence interval
+confidence <- 0.95
+# 2. sample size  
+n <- 100
+# 3. sample mean 
+x <- 2.45
+# 4. sample standard deviation
+s <- 2
+
+
+# z-confidence interval
+sprintf("The 95%% confidence interval is (%s)", 
+        get_z_confidence_interval(confidence, x, s))
+
+# t-confidence interval
+sprintf("The 95%% confidence interval is (%s)", 
+        get_t_confidence_interval(confidence, n, x, s))
+```
+
